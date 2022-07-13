@@ -1,6 +1,6 @@
 import { Request } from "@remix-run/node";
 import { afterEach, beforeEach, describe, expect, it, Mock, vi } from "vitest";
-import { ActionsStore, callAction } from "../src";
+import { callAction } from "../src";
 import { loadRoutes } from "../src/routes-loader";
 
 let nodeEnv = process.env.NODE_ENV;
