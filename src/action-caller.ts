@@ -12,13 +12,12 @@ import {
 import { ActionRoute } from "./typings";
 
 export async function callAction(args: DataFunctionArgs) {
-  if (process.env.NODE_ENV === "development" || !global.actionsStore?.actions) {
-    loadRoutes();
-  }
+  const store = loadRoutes();
 
-  const store = global.actionsStore;
-
-  invariant(store?.actions, "Actions must be defined");
+  invariant(
+    store.state === "INITIALIZED",
+    "Store must be initialized to call actions"
+  );
 
   const actionRoutes = createRoutes(store.actions as ServerRouteManifest);
 
@@ -26,6 +25,7 @@ export async function callAction(args: DataFunctionArgs) {
   const actionName = formData.get("_action");
 
   invariant(typeof actionName === "string", "Action must be a string");
+  invariant(actionName.length > 0, "Action must be longer than 0");
 
   const url = new URL(args.request.url);
   const matches = matchServerRoutes(

@@ -24,4 +24,7 @@ export type ActionRoutes = {
 
 export interface ActionsStore {
   actions: ActionRoutes;
+  state: ActionStoreState;
 }
+
+export type ActionStoreState = "UNINITIALIZED" | "INITIALIZED";

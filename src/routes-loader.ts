@@ -1,8 +1,15 @@
 import { join } from "node:path";
-import { ActionRoutes } from "./typings";
+import { ActionRoutes, ActionsStore } from "./typings";
+
+let actionsStore: ActionsStore = { actions: {}, state: "UNINITIALIZED" };
 
 export function loadRoutes() {
-  if (global.actionsStore?.actions) return;
+  if (
+    process.env.NODE_ENV !== "development" &&
+    actionsStore?.state === "INITIALIZED"
+  ) {
+    return actionsStore;
+  }
 
   const buildPath = join(process.cwd(), "build", "index.js");
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -16,5 +23,7 @@ export function loadRoutes() {
     )
   );
 
-  global.actionsStore = { actions };
+  actionsStore = { actions, state: "INITIALIZED" };
+
+  return actionsStore;
 }
