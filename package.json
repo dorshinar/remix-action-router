@@ -1,7 +1,10 @@
 {
   "name": "remix-action-router",
   "version": "0.0.2",
-  "description": "",
+  "description": "Declarative action matching for Remix actions",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/index.mjs",
