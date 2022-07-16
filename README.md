@@ -77,7 +77,7 @@ export default create;
 
 `remix-action-router` uses the `_action` FormData field to determine which action to run. To get that value, `remix-action-router` must call `await request.formData()`.
 
-Because of that, calling `await request.formData()` in your action functions will result in an error. To overcome this `remix-action-router` will add the `formData` object as an argument to your action functions.
+Because of that, calling `await request.formData()` in your action functions will result in an error. To overcome this, `remix-action-router` will add the `formData` object as an argument to your action functions.
 
 So, instead of Remix's usual action arguments:
 
@@ -99,3 +99,5 @@ interface ActionArgs {
   formData: FormData;
 }
 ```
+
+All other params are left untouched.
