@@ -11,7 +11,8 @@
     "format:write": "prettier --write .",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "build": "tsup"
+    "build": "tsup",
+    "release": "npm run build && changeset publish"
   },
   "repository": {
     "type": "git",
