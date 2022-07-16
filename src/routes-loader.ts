@@ -1,4 +1,4 @@
-import { join } from "node:path";
+import { requireBuild } from "./require-build";
 import { ActionRoutes, ActionsStore } from "./typings";
 
 let actionsStore: ActionsStore = { actions: {}, state: "UNINITIALIZED" };
@@ -11,9 +11,7 @@ export function loadRoutes() {
     return actionsStore;
   }
 
-  const buildPath = join(process.cwd(), "build", "index.js");
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const build = require(buildPath);
+  const build = requireBuild();
 
   const routes = build.routes as ActionRoutes;
 
@@ -26,4 +24,8 @@ export function loadRoutes() {
   actionsStore = { actions, state: "INITIALIZED" };
 
   return actionsStore;
+}
+
+export function resetStore() {
+  actionsStore = { actions: {}, state: "UNINITIALIZED" };
 }
