@@ -15,21 +15,23 @@ export function action({ request }) {
   const formData = await request.formData();
   const actionName = formData.get("_action");
 
-  switch(actionName) {
+  switch (actionName) {
     case "create": {
-        // create logic
-    },
+      // create logic
+    }
     case "delete": {
-        // delete logic
-    },
+      // delete logic
+    }
     case "update": {
-        // update logic
-    },
+      // update logic
+    }
   }
 }
 ```
 
-You can move each action logic to a specific file under the `routes/actions__` folder and have `remix-action-router` take care of the action matching logic.
+With `remix-action-router` you can move the logic of each action to a specific file under the `routes/actions__` folder and have `remix-action-router` take care of the action matching logic.
+
+The folder structure must match your routes structure, in such a way that each route file becomes its own folder, and each action becomes a file under said folder.
 
 Effectively, your routes folder will look like this:
 
