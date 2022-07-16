@@ -73,6 +73,24 @@ const create: ActionRouteFunction = ({ formData }) => {
 export default create;
 ```
 
+## Configuration
+
+The `callAction` method accepts a second parameter that is a configuration object.
+
+```ts
+// filename: app/routes/item/$id.tsx
+
+export function action(args) {
+  return callAction(args, { actionName: "customActionName" });
+}
+```
+
+The options are:
+
+### actionName
+
+By default, `remix-action-router` will use the value in the `_action` field on the request's `formData` property. This can be overridden using the `actionName` config field.
+
 ## Caveats
 
 `remix-action-router` uses the `_action` FormData field to determine which action to run. To get that value, `remix-action-router` must call `await request.formData()`.
