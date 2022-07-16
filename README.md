@@ -31,7 +31,7 @@ export function action({ request }) {
 
 With `remix-action-router` you can move the logic of each action to a specific file under the `routes/actions__` folder and have `remix-action-router` take care of the action matching logic.
 
-The folder structure must match your routes structure, in such a way that each route file becomes its own folder, and each action becomes a file under said folder.
+The folder structure must match your routes structure in such a way that each route file becomes its own folder, and each action becomes a file under said folder.
 
 Effectively, your routes folder will look like this:
 
@@ -48,7 +48,7 @@ app/
         └── $id.tsx
 ```
 
-And in `app/routes/item/$id.tsx` you can replace your action function definition with:
+Back to `app/routes/item/$id.tsx`, you can replace your action function definition with:
 
 ```ts
 // filename: app/routes/item/$id.tsx
@@ -77,9 +77,7 @@ export default create;
 
 `remix-action-router` uses the `_action` FormData field to determine which action to run. To get that value, `remix-action-router` must call `await request.formData()`.
 
-To determine which action is intended to be called, `remix-action-router` must call `await request.formData()` and extract the `_action` value from it.
-
-Due to that, calling `await request.formData()` in your action functions will result in an error. To overcome this `remix-action-router` will add the `formData` object as an argument to your action functions.
+Because of that, calling `await request.formData()` in your action functions will result in an error. To overcome this `remix-action-router` will add the `formData` object as an argument to your action functions.
 
 So, instead of Remix's usual action arguments:
 
