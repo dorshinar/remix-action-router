@@ -4,6 +4,9 @@
 
 `remix-action-router` is a small utility that allows setting up your Remix actions as route files. It takes Remix's declarative approach to network calls and applies it to route actions.
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dorshinar/remix-action-router/%F0%9F%9A%80%20Deploy)
+![npm](https://img.shields.io/npm/v/remix-action-router)
+
 ## Getting Started
 
 Let's assume we have a route component in `app/routes/item/$id.tsx` that handles basic CRUD logic for shopping cart items.
