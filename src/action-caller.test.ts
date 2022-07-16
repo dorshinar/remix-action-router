@@ -382,4 +382,57 @@ describe("action-caller", () => {
 
     expect(correctActionMock).toHaveBeenCalled();
   });
+
+  it("calls action from actionName passed by config", async () => {
+    const correctActionMock = vi.fn();
+
+    loadRoutesMock.mockReturnValue({
+      actions: {
+        root: {
+          id: "root",
+          parentId: void 0,
+          path: "",
+          index: void 0,
+          caseSensitive: void 0,
+          module: { default: vi.fn() },
+        },
+        "routes/actions__/recurring": {
+          id: "routes/actions__/recurring",
+          parentId: "root",
+          path: "actions__/recurring",
+          index: void 0,
+          caseSensitive: void 0,
+          module: { default: correctActionMock },
+        },
+        "routes/actions__/create": {
+          id: "routes/actions__/create",
+          parentId: "root",
+          path: "actions__/create",
+          index: void 0,
+          caseSensitive: void 0,
+          module: { default: vi.fn() },
+        },
+      },
+      state: "INITIALIZED",
+    });
+
+    const actionName = "customActionName";
+
+    const formData = new FormData();
+    formData.append(actionName, "recurring");
+
+    await callAction(
+      {
+        context: {},
+        params: {},
+        request: new Request("https://example.com", {
+          method: "POST",
+          body: formData,
+        }),
+      },
+      { actionName }
+    );
+
+    expect(correctActionMock).toHaveBeenCalled();
+  });
 });

@@ -2,12 +2,12 @@ import { DataFunctionArgs, ActionFunction } from "@remix-run/server-runtime";
 import { ServerRouteModule } from "@remix-run/server-runtime/dist/routeModules";
 import { ServerRoute } from "@remix-run/server-runtime/dist/routes";
 
-interface ActionArgs extends DataFunctionArgs {
+export interface RouteActionsArgs extends DataFunctionArgs {
   formData: FormData;
 }
 
 export interface ActionRouteFunction {
-  (args: ActionArgs): ReturnType<ActionFunction>;
+  (args: RouteActionsArgs): ReturnType<ActionFunction>;
 }
 
 type ActionRouteModule = Omit<ServerRouteModule, "default"> & {
@@ -28,3 +28,11 @@ export interface ActionsStore {
 }
 
 export type ActionStoreState = "UNINITIALIZED" | "INITIALIZED";
+
+export interface ActionCallerConfig {
+  /**
+   * The name of the action to be executed.
+   * @default "_action"
+   */
+  actionName: string;
+}

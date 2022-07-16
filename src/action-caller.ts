@@ -1,5 +1,3 @@
-import { DataFunctionArgs } from "@remix-run/server-runtime";
-import { ServerRouteManifest } from "@remix-run/server-runtime/dist/routes";
 import { join } from "node:path";
 import invariant from "tiny-invariant";
 import { loadRoutes } from "./routes-loader";
@@ -8,10 +6,19 @@ import {
   matchServerRoutes,
   getActionRequestMatch,
   RouteMatch,
+  DataFunctionArgs,
+  ServerRouteManifest,
 } from "./remix-shim";
-import { ActionRoute } from "./typings";
+import { ActionCallerConfig, ActionRoute } from "./typings";
 
-export async function callAction(args: DataFunctionArgs) {
+const DEFAULT_CONFIG: ActionCallerConfig = {
+  actionName: "_action",
+};
+
+export async function callAction(
+  args: DataFunctionArgs,
+  config: ActionCallerConfig = DEFAULT_CONFIG
+) {
   const store = loadRoutes();
 
   invariant(
@@ -22,7 +29,7 @@ export async function callAction(args: DataFunctionArgs) {
   const actionRoutes = createRoutes(store.actions as ServerRouteManifest);
 
   const formData = await args.request.formData();
-  const actionName = formData.get("_action");
+  const actionName = formData.get(config.actionName);
 
   invariant(typeof actionName === "string", "Action must be a string");
   invariant(actionName.length > 0, "Action must be longer than 0");
