@@ -94,6 +94,11 @@ The options are:
 
 By default, `remix-action-router` will use the value in the `_action` field on the request's `formData` property. This can be overridden using the `actionName` config field.
 
+### actionsRoute
+
+By default, `remix-action-router` will search for action files under the `app/routes/actions__` directory. This option allows configuring the path for the actions.
+Note that the action files route is relative to `app/routes`.
+
 ## Caveats
 
 `remix-action-router` uses the `_action` FormData field to determine which action to run. To get that value, `remix-action-router` must call `await request.formData()`.
