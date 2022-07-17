@@ -32,7 +32,13 @@ export type ActionStoreState = "UNINITIALIZED" | "INITIALIZED";
 export interface ActionCallerConfig {
   /**
    * The name of the action to be executed.
-   * @default "_action"
+   * @default _action
    */
   actionName: string;
+
+  /**
+   * The folder in which to search for action routes.
+   * @default actions__
+   */
+  actionsRoute: string;
 }
