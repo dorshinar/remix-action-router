@@ -1,4 +1,4 @@
-import { ActionsStore } from ".";
+import type { ActionsStore } from ".";
 
 declare global {
   // eslint-disable-next-line no-var

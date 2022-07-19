@@ -1,5 +1,6 @@
 import { Request } from "@remix-run/node";
-import { afterEach, describe, expect, it, Mock, vi } from "vitest";
+import type { Mock} from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { callAction } from ".";
 import { loadRoutes } from "./routes-loader";
 

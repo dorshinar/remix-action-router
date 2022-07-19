@@ -1,5 +1,5 @@
 import type { Params } from "@remix-run/react";
-import {
+import type {
   ServerRoute,
   ServerRouteManifest,
 } from "@remix-run/server-runtime/dist/routes";
