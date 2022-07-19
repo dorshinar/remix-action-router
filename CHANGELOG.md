@@ -1,5 +1,11 @@
 # remix-action-router
 
+## 0.0.7
+
+### Patch Changes
+
+- e47efac: fix exports
+
 ## 0.0.6
 
 ### Patch Changes
