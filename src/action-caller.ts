@@ -4,11 +4,12 @@ import { loadRoutes } from "./routes-loader";
 import type {
   RouteMatch,
   DataFunctionArgs,
-  ServerRouteManifest} from "./remix-shim";
+  ServerRouteManifest,
+} from "./remix-shim";
 import {
   createRoutes,
   matchServerRoutes,
-  getActionRequestMatch
+  getActionRequestMatch,
 } from "./remix-shim";
 import type { ActionCallerConfig, ActionRoute } from "./typings";
 
