@@ -1,5 +1,11 @@
 # remix-action-router
 
+## 0.0.8
+
+### Patch Changes
+
+- 9cf46d5: make action caller return type generic
+
 ## 0.0.7
 
 ### Patch Changes
