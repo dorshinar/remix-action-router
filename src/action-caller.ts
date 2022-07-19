@@ -1,17 +1,15 @@
 import { join } from "node:path";
 import invariant from "tiny-invariant";
 import { loadRoutes } from "./routes-loader";
-import type {
-  RouteMatch,
-  DataFunctionArgs,
-  ServerRouteManifest,
-} from "./remix-shim";
+import type { RouteMatch } from "./remix-shim";
 import {
   createRoutes,
   matchServerRoutes,
   getActionRequestMatch,
 } from "./remix-shim";
 import type { ActionCallerConfig, ActionRoute } from "./typings";
+import type { DataFunctionArgs } from "@remix-run/server-runtime";
+import type { ServerRouteManifest } from "@remix-run/server-runtime/dist/routes";
 
 const DEFAULT_CONFIG: ActionCallerConfig = {
   actionName: "_action",
