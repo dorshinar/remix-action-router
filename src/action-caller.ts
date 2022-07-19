@@ -16,13 +16,13 @@ const DEFAULT_CONFIG: ActionCallerConfig = {
   actionsRoute: "actions__",
 };
 
-export async function callAction(
+export async function callAction<T = unknown>(
   args: DataFunctionArgs,
   {
     actionName: _actionName = DEFAULT_CONFIG.actionName,
     actionsRoute: _actionsRoute = DEFAULT_CONFIG.actionsRoute,
   }: Partial<ActionCallerConfig> = DEFAULT_CONFIG
-) {
+): Promise<T> {
   const store = loadRoutes();
 
   invariant(
