@@ -6,9 +6,6 @@ import type {
 import type { RouteObject } from "react-router-dom";
 import { matchRoutes } from "react-router-dom";
 
-export { DataFunctionArgs } from "@remix-run/server-runtime";
-export { ServerRouteManifest } from "@remix-run/server-runtime/dist/routes";
-
 /**
  * This type was taken directly from repo Remix repo.
  * https://github.com/remix-run/remix/blob/5b8a0ce0aa0201aa2402fc41405ffbe89605963b/packages/remix-server-runtime/routeMatching.ts
