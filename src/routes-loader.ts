@@ -1,5 +1,5 @@
 import { requireBuild } from "./require-build";
-import { ActionRoutes, ActionsStore } from "./typings";
+import type { ActionRoutes, ActionsStore } from "./typings";
 
 let actionsStore: ActionsStore = { actions: {}, state: "UNINITIALIZED" };
 

@@ -1,7 +1,8 @@
-import { afterEach, describe, expect, it, Mock, vi } from "vitest";
+import type { Mock } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { requireBuild } from "./require-build";
 import { loadRoutes, resetStore } from "./routes-loader";
-import { ActionRoutes } from "./typings";
+import type { ActionRoutes } from "./typings";
 
 vi.mock("./require-build", async () => {
   const requireBuildModule = await vi.importActual<

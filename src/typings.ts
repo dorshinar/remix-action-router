@@ -1,6 +1,9 @@
-import { DataFunctionArgs, ActionFunction } from "@remix-run/server-runtime";
-import { ServerRouteModule } from "@remix-run/server-runtime/dist/routeModules";
-import { ServerRoute } from "@remix-run/server-runtime/dist/routes";
+import type {
+  DataFunctionArgs,
+  ActionFunction,
+} from "@remix-run/server-runtime";
+import type { ServerRouteModule } from "@remix-run/server-runtime/dist/routeModules";
+import type { ServerRoute } from "@remix-run/server-runtime/dist/routes";
 
 export interface RouteActionsArgs extends DataFunctionArgs {
   formData: FormData;
