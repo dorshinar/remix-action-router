@@ -1,5 +1,11 @@
 # remix-action-router
 
+## 0.0.5
+
+### Patch Changes
+
+- a140831: add actionsRoute config option to callActions
+
 ## 0.0.4
 
 ### Patch Changes
