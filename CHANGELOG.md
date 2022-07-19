@@ -1,5 +1,11 @@
 # remix-action-router
 
+## 0.0.6
+
+### Patch Changes
+
+- 595fd8f: fix export type with eslint
+
 ## 0.0.5
 
 ### Patch Changes
